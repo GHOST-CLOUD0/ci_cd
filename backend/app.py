@@ -18,11 +18,13 @@ CORS(app)  # allow the React dev server to call this API
 
 
 @app.get("/api/health")
+
 def health():
     return jsonify(status="ok")
 
 
 @app.get("/api/greet/<name>")
+
 def greet(name):
     if not name.strip():
         return jsonify(error="name must not be empty"), 400
@@ -30,6 +32,7 @@ def greet(name):
 
 
 @app.post("/api/add")
+
 def add():
     data = request.get_json(silent=True) or {}
     if "a" not in data or "b" not in data:
